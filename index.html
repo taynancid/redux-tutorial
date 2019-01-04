@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Redux Tutorial Todos Goals</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.min.js"></script>
   </head>
   <body>
     <div>
@@ -136,6 +137,12 @@
       }
 
       const store = createStore(app);
+
+      //both the app and createStore can be made with the Redux lib
+      //const store = Redux.createStore(Redux.combineReducers({
+      //   todos,
+      //   goals
+      // }))
 
       store.subscribe(() => {
         const { todos, goals } = store.getState();
