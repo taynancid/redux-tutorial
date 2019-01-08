@@ -190,6 +190,11 @@
 
         removeItem = todo => {
           this.props.store.dispatch(removeTodoAction(todo.id));
+
+          return API.deleteTodo(todo.id).catch(() => {
+            this.props.store.dispatch(addTodoAction(todo));
+            alert("an error has occured");
+          });
         };
 
         toggleItem = todo => {
@@ -232,6 +237,11 @@
 
         removeItem = goal => {
           this.props.store.dispatch(removeGoalAction(goal.id));
+
+          return API.deleteGoal(goal.id).catch(() => {
+            this.props.store.dispatch(addGoalAction(goal));
+            alert("an error occurred");
+          });
         };
 
         render() {
